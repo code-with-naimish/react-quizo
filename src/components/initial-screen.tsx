@@ -22,9 +22,9 @@ export default function InitialScreen() {
       <p>A fun and interactive quiz app designed to challenge your knowledge across various topics! Compete with friends, explore trivia, and track your progress as you learn something new every day.</p>
       <div>
         <h2>Category</h2>
-        <ul className="flex gap-4 flex-wrap items-center ">
+        <ul className="flex gap-3 flex-wrap items-center ">
           {categories.map((category, i) => {
-            return <li className="bg-red-400 b" key={i}>{category.label}
+            return <li className="bg-gray-900/10 text-grey-900 text-sm px-4 py-1 rounded-[99px]" key={i}>{category.label}
             </li>
           })}
         </ul>
