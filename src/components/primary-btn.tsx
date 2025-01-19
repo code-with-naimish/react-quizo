@@ -3,7 +3,7 @@ export default function PrimaryBtn(props: {
   title: string
 }) {
   return (
-    <button className="bg-gray-800 text-white px-6 py-2 rounded-[99px] hover:bg-gray-700 transition-all">{props.title}</button>
+    <button className=" bg-gradient-to-r from-cyan-500 to-blue-500 hover:opacity-90 text-white px-6 py-2 rounded-[99px] transition-all ">{props.title}</button>
 
   )
 }

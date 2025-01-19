@@ -24,7 +24,7 @@ export default function InitialScreen() {
         <h2>Category</h2>
         <ul className="flex gap-3 flex-wrap items-center ">
           {categories.map((category, i) => {
-            return <li className="bg-gray-900/10 text-grey-900 text-sm px-4 py-1 rounded-[99px]" key={i}>{category.label}
+            return <li className="bg-cyan-500/5 border border-cyan-300  font-medium  text-cyan-500 text-sm px-4 py-1 rounded-[99px]" key={i}>{category.label}
             </li>
           })}
         </ul>

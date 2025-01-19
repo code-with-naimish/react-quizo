@@ -23,7 +23,7 @@ const App = () => {
     <div className=" min-h-screen">
       <Header />
 
-      <main className=" bg-gray-300" >
+      <main className="bg-gradient-to-r from-cyan-500 to-blue-500" >
         <div className=" h-[calc(100vh-120px)] flex justify-center items-center ">
           <div className="max-w-5xl px-8 mx-auto w-full" >
             {activeScreen === ScreenEnum.INIT ? <InitialScreen /> : null}
