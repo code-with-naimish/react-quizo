@@ -11,6 +11,7 @@ import Footer from "./components/footer"
 
 
 
+
 const App = () => {
   const [activeScreen, setActiveScreen] = useState<ScreenEnum>(ScreenEnum.INIT);
   const onSuccess = (screen: ScreenEnum) => {
@@ -19,14 +20,16 @@ const App = () => {
   return (
 
 
-    <div className=" min-h-screen bg-pink-700">
+    <div className=" min-h-screen">
       <Header />
 
       <main className=" bg-gray-300" >
-        <div className="bg-green-600 h-[calc(100vh-72px)]  max-w-5xl px-8 mx-auto">
-          {activeScreen === ScreenEnum.INIT ? <InitialScreen /> : null}
-          {activeScreen === ScreenEnum.QUIZ ? <QuizScreen /> : null}
-          {activeScreen === ScreenEnum.RESULT ? <ResultScreen /> : null}
+        <div className=" h-[calc(100vh-120px)] flex justify-center items-center ">
+          <div className="max-w-5xl px-8 mx-auto w-full" >
+            {activeScreen === ScreenEnum.INIT ? <InitialScreen /> : null}
+            {activeScreen === ScreenEnum.QUIZ ? <QuizScreen /> : null}
+            {activeScreen === ScreenEnum.RESULT ? <ResultScreen /> : null}
+          </div>
         </div>
       </main>
 

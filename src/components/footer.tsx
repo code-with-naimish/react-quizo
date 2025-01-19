@@ -1,9 +1,12 @@
 
-export default function footer() {
+export default function Footer() {
   return (
-    <footer className="bg-yellow-50" >
-      <div className="max-w-7xl mx-auto bg-red-500">
-        footer
+    <footer className="" >
+      <div className="max-w-7xl mx-auto px-8">
+        <div className="py-3">
+          footer
+        </div>
+
       </div>
     </footer>
   )
