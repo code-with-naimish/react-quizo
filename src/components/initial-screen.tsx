@@ -1,3 +1,4 @@
+import { useState } from "react"
 import PrimaryBtn from "./primary-btn"
 
 const categories =
@@ -14,18 +15,54 @@ const categories =
     { label: "General Knowledge", value: "general_knowledge" }
   ]
 
-const difficulty = [
+const difficulties = [
   { label: "Easy", value: "easy" },
   { label: "Medium", value: "medium" },
   { label: "Hard", value: "hard" },
 ]
 
-const type = [
+const types = [
   { label: "Text Based Questions", value: "text_choice" },
   { label: "Image Based Questions", value: "image_choice" },
 ]
 
+
+
 export default function InitialScreen() {
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const [selectedDifficulties, setSelectedDifficulties] = useState<string[]>([]);
+  const [selectedtypes, setSelectedTypes] = useState<string[]>([]);
+
+  const handleCategories = (val: string) => {
+    setSelectedCategories((prevArr) => {
+      if (prevArr.includes(val)) {
+        return prevArr.filter((p) => p !== val);
+      }
+      const newArr = [...prevArr, val];
+      return newArr;
+    })
+  }
+
+  const handleDifficulties = (val: string) => {
+    setSelectedDifficulties((prevArr) => {
+      if (prevArr.includes(val)) {
+        return prevArr.filter((p) => p !== val)
+      }
+      const newArr = [...prevArr, val];
+      return newArr;
+    })
+  }
+
+  const handleTypes = (val: string) => {
+    setSelectedTypes((prevArr) => {
+      if (prevArr.includes((val))) {
+        return prevArr.filter((p) => p !== val)
+      }
+      const newArr = [...prevArr, val]
+      return newArr;
+    })
+  }
+
   return (
     <section className="card">
       <h1 className="text-xl font-semibold leading-none mb-3">Welcome to <span className="gradient-text">Quizo!</span> </h1>
@@ -35,26 +72,27 @@ export default function InitialScreen() {
       </p>
 
       <div className="border mb-5 border-stone-300 p-4 rounded-lg">
-        <h2 className="mb-2 font-medium leading-none">Category</h2>
+        <h2 className="mb-2 font-medium leading-none">Categories</h2>
         <ul className="flex gap-3 flex-wrap items-center mb-4 ">
           {categories.map((category, i) => {
-            return <li className=" border border-stone-300  font-medium text-xs px-4 py-1 rounded-[99px]" key={i}>{category.label}
+            return <li onClick={() => handleCategories(category.value)} className=" border border-stone-300  font-medium text-xs px-4 py-1 rounded-[99px]" key={i}>
+              {category.label}
             </li>
           })}
         </ul>
 
-        <h2 className="mb-2 font-medium">Difficulty</h2>
+        <h2 className="mb-2 font-medium">Difficulties</h2>
         <ul className="flex gap-3 flex-wrap items-center mb-4">
-          {difficulty.map((difficulty, i) => {
-            return <li className="border border-stone-300  font-medium  text-xs px-4 py-1 rounded-[99px]" key={i}>{difficulty.label}
+          {difficulties.map((difficulty, i) => {
+            return <li onClick={() => handleDifficulties(difficulty.value)} className="border border-stone-300  font-medium  text-xs px-4 py-1 rounded-[99px]" key={i}>{difficulty.label}
             </li>
           })}
         </ul>
 
-        <h2 className="mb-2 font-medium">Type</h2>
+        <h2 className="mb-2 font-medium">Types</h2>
         <ul className="flex gap-3 flex-wrap items-center ">
-          {type.map((type, i) => {
-            return <li className="border border-stone-300  font-medium  text-xs px-4 py-1 rounded-[99px]" key={i}>{type.label}
+          {types.map((type, i) => {
+            return <li onClick={() => handleTypes(type.value)} className="border border-stone-300  font-medium  text-xs px-4 py-1 rounded-[99px]" key={i}>{type.label}
             </li>
           })}
         </ul>
