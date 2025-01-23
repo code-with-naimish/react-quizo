@@ -75,7 +75,7 @@ export default function InitialScreen() {
         <h2 className="mb-2 font-medium leading-none">Categories</h2>
         <ul className="flex gap-3 flex-wrap items-center mb-4 ">
           {categories.map((category, i) => {
-            return <li onClick={() => handleCategories(category.value)} className=" border border-stone-300  font-medium text-xs px-4 py-1 rounded-[99px]" key={i}>
+            return <li onClick={() => handleCategories(category.value)} className={`${selectedCategories.includes(category.value) ? 'bg-blue-500 border-blue-500 text-white' : 'border-stone-300'} border   font-medium text-xs px-4 py-1 rounded-[99px]`} key={i}>
               {category.label}
             </li>
           })}
@@ -84,7 +84,7 @@ export default function InitialScreen() {
         <h2 className="mb-2 font-medium">Difficulties</h2>
         <ul className="flex gap-3 flex-wrap items-center mb-4">
           {difficulties.map((difficulty, i) => {
-            return <li onClick={() => handleDifficulties(difficulty.value)} className="border border-stone-300  font-medium  text-xs px-4 py-1 rounded-[99px]" key={i}>{difficulty.label}
+            return <li onClick={() => handleDifficulties(difficulty.value)} className={`${selectedDifficulties.includes(difficulty.value) ? 'bg-blue-500 border-blue-500 text-white' : 'border-stone-300'} border font-medium  text-xs px-4 py-1 rounded-[99px]`} key={i}>{difficulty.label}
             </li>
           })}
         </ul>
@@ -92,7 +92,7 @@ export default function InitialScreen() {
         <h2 className="mb-2 font-medium">Types</h2>
         <ul className="flex gap-3 flex-wrap items-center ">
           {types.map((type, i) => {
-            return <li onClick={() => handleTypes(type.value)} className="border border-stone-300  font-medium  text-xs px-4 py-1 rounded-[99px]" key={i}>{type.label}
+            return <li onClick={() => handleTypes(type.value)} className={`${selectedtypes.includes(type.value) ? 'bg-blue-500 border-blue-500 text-white' : 'border-stone-300'} border font-medium  text-xs px-4 py-1 rounded-[99px]`} key={i}>{type.label}
             </li>
           })}
         </ul>
