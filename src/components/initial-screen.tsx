@@ -73,6 +73,16 @@ export default function InitialScreen() {
     }
   }
 
+  const getStarted = () => {
+    if (selectedCategories?.length === 0 || selectedDifficulties?.length === 0 || selectedtypes?.length === 0) {
+      console.log("hello")
+      return;
+    }
+    getQuestions();
+
+
+  }
+
   return (
     <section className="card">
       <h1 className="text-xl font-semibold leading-none mb-3">Welcome to <span className="gradient-text">Quizo!</span> </h1>
@@ -84,32 +94,32 @@ export default function InitialScreen() {
       <div className="border mb-5 border-stone-300 p-4 rounded-lg">
         <h2 className="mb-2 font-medium leading-none">Categories</h2>
         <ul className="flex gap-3 flex-wrap items-center mb-4 ">
-          {categories.map((category, i) => {
-            return <li onClick={() => handleCategories(category.value)} className={`${selectedCategories.includes(category.value) ? 'bg-blue-500 border-blue-500 text-white' : 'border-stone-300'} border   font-medium text-xs px-4 py-1 rounded-[99px]`} key={i}>
-              {category.label}
+          {categories.map((val, i) => {
+            return <li onClick={() => handleCategories(val.value)} className={`${selectedCategories.includes(val.value) ? 'bg-blue-500 border-blue-500 text-white' : 'border-stone-300'} border   font-medium text-xs px-4 py-1 rounded-[99px]`} key={i}>
+              {val.label}
             </li>
           })}
         </ul>
 
         <h2 className="mb-2 font-medium">Difficulties</h2>
         <ul className="flex gap-3 flex-wrap items-center mb-4">
-          {difficulties.map((difficulty, i) => {
-            return <li onClick={() => handleDifficulties(difficulty.value)} className={`${selectedDifficulties.includes(difficulty.value) ? 'bg-blue-500 border-blue-500 text-white' : 'border-stone-300'} border font-medium  text-xs px-4 py-1 rounded-[99px]`} key={i}>{difficulty.label}
+          {difficulties.map((val, i) => {
+            return <li onClick={() => handleDifficulties(val.value)} className={`${selectedDifficulties.includes(val.value) ? 'bg-blue-500 border-blue-500 text-white' : 'border-stone-300'} border font-medium  text-xs px-4 py-1 rounded-[99px]`} key={i}>{val.label}
             </li>
           })}
         </ul>
 
         <h2 className="mb-2 font-medium">Types</h2>
         <ul className="flex gap-3 flex-wrap items-center ">
-          {types.map((type, i) => {
-            return <li onClick={() => handleTypes(type.value)} className={`${selectedtypes.includes(type.value) ? 'bg-blue-500 border-blue-500 text-white' : 'border-stone-300'} border font-medium  text-xs px-4 py-1 rounded-[99px]`} key={i}>{type.label}
+          {types.map((val, i) => {
+            return <li onClick={() => handleTypes(val.value)} className={`${selectedtypes.includes(val.value) ? 'bg-blue-500 border-blue-500 text-white' : 'border-stone-300'} border font-medium  text-xs px-4 py-1 rounded-[99px]`} key={i}>{val.label}
             </li>
           })}
         </ul>
 
       </div>
       <div className="flex justify-end">
-        <PrimaryBtn onClick={getQuestions} title="Get started" />
+        <PrimaryBtn onClick={getStarted} title="Get started" />
 
       </div>
     </section>
