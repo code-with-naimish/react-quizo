@@ -1,5 +1,6 @@
 import { useState } from "react"
 import PrimaryBtn from "./primary-btn"
+import { TriviaService } from "../services/trivia.service"
 
 const categories =
   [
@@ -63,6 +64,15 @@ export default function InitialScreen() {
     })
   }
 
+  const getQuestions = async () => {
+    try {
+      const data = await TriviaService.getRandomQuestion();
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <section className="card">
       <h1 className="text-xl font-semibold leading-none mb-3">Welcome to <span className="gradient-text">Quizo!</span> </h1>
@@ -99,7 +109,7 @@ export default function InitialScreen() {
 
       </div>
       <div className="flex justify-end">
-        <PrimaryBtn title="Get started" />
+        <PrimaryBtn onClick={getQuestions} title="Get started" />
 
       </div>
     </section>
