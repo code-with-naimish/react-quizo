@@ -6,11 +6,8 @@ export class TriviaService {
     difficulties: string,
     limit: string
   }) {
-    // console.log(queryParam)
-    const queryString = new URLSearchParams(queryParam).toString();
-    // console.log(queryString)
+    const queryString = new URLSearchParams(queryParam).toString();// converting object to query params
     const url = `${environment.triviaBaseUrl}/questions?${queryString}`
-    console.log(url)
     const response = await fetch(url);
     if (!response.ok) {
       throw new Error("Unable to fetch questions")

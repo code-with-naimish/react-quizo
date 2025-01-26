@@ -54,8 +54,8 @@ export default function InitialScreen() {
 
 
   const getQuestions = async () => {
-    const categoriesStr = selectedCategories.toString();
-    const difficultiesStr = selectedDifficulties.toString();
+    const categoriesStr = selectedCategories.toString(); //converting array to comma seperated string
+    const difficultiesStr = selectedDifficulties.toString();//converting array to comma seperated string
     setLoading(true)
     try {
       const data = await TriviaService.getRandomQuestion({
