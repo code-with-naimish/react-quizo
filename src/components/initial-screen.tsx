@@ -73,7 +73,7 @@ export default function InitialScreen() {
 
   const getStarted = () => {
     if (selectedCategories?.length === 0 || selectedDifficulties?.length === 0) {
-      toast("Please select Categories, Difficulties & Types!", {
+      toast("Please select Categories & Difficulties!", {
         type: "warning"
       })
       return;
