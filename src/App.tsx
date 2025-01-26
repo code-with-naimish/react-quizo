@@ -8,6 +8,8 @@ import QuizScreen from "./components/quiz-screen"
 import ResultScreen from "./components/result-screen"
 import Header from "./components/header"
 import Footer from "./components/footer"
+import { ToastContainer } from 'react-toastify';
+
 
 
 
@@ -34,6 +36,11 @@ const App = () => {
       </main>
 
       <Footer />
+      <ToastContainer
+        position="bottom-right"
+        autoClose={3000}
+        theme="light"
+      />
     </div>
 
   )

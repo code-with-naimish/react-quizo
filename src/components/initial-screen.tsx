@@ -1,6 +1,7 @@
 import { useState } from "react"
 import PrimaryBtn from "./primary-btn"
 import { TriviaService } from "../services/trivia.service"
+import { toast } from 'react-toastify';
 
 const categories =
   [
@@ -65,6 +66,7 @@ export default function InitialScreen() {
   }
 
   const getQuestions = async () => {
+    console.log(selectedCategories, selectedDifficulties, selectedtypes)
     try {
       const data = await TriviaService.getRandomQuestion();
       console.log(data);
@@ -75,7 +77,9 @@ export default function InitialScreen() {
 
   const getStarted = () => {
     if (selectedCategories?.length === 0 || selectedDifficulties?.length === 0 || selectedtypes?.length === 0) {
-      console.log("hello")
+      toast("Please select Categories, Difficulties & Types!", {
+        type: "warning"
+      })
       return;
     }
     getQuestions();
