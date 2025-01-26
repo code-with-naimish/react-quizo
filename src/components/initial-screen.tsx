@@ -95,7 +95,7 @@ export default function InitialScreen() {
         <h2 className="mb-2 font-medium leading-none">Categories</h2>
         <ul className="flex gap-3 flex-wrap items-center mb-4 ">
           {categories.map((val, i) => {
-            return <li onClick={() => handleCategories(val.value)} className={`${selectedCategories.includes(val.value) ? 'bg-blue-500 border-blue-500 text-white' : 'border-stone-300'} border   font-medium text-xs px-4 py-1 rounded-[99px]`} key={i}>
+            return <li key={i} onClick={() => handleCategories(val.value)} className={`${selectedCategories.includes(val.value) ? 'bg-blue-500 border-blue-500 text-white' : 'border-stone-300'} border   font-medium text-xs px-4 py-1 rounded-[99px]`} >
               {val.label}
             </li>
           })}
@@ -104,7 +104,8 @@ export default function InitialScreen() {
         <h2 className="mb-2 font-medium">Difficulties</h2>
         <ul className="flex gap-3 flex-wrap items-center ">
           {difficulties.map((val, i) => {
-            return <li onClick={() => handleDifficulties(val.value)} className={`${selectedDifficulties.includes(val.value) ? 'bg-blue-500 border-blue-500 text-white' : 'border-stone-300'} border font-medium  text-xs px-4 py-1 rounded-[99px]`} key={i}>{val.label}
+            return <li key={i} onClick={() => handleDifficulties(val.value)} className={`${selectedDifficulties.includes(val.value) ? 'bg-blue-500 border-blue-500 text-white' : 'border-stone-300'} border font-medium  text-xs px-4 py-1 rounded-[99px]`} >
+              {val.label}
             </li>
           })}
         </ul>
