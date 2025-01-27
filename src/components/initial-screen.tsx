@@ -2,6 +2,7 @@ import { useState } from "react"
 import PrimaryBtn from "./primary-btn"
 import { TriviaService } from "../services/trivia.service"
 import { toast } from 'react-toastify';
+import { QuestionModel } from "../_models/question.model";
 
 
 const categories =
@@ -27,7 +28,10 @@ const difficulties = [
 
 
 
-export default function InitialScreen() {
+export default function InitialScreen(props: {
+  onGetStarted: (arr: QuestionModel[]) => void;
+}) {
+
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [selectedDifficulties, setSelectedDifficulties] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
@@ -63,7 +67,7 @@ export default function InitialScreen() {
         difficulties: difficultiesStr,
         limit: '20',
       });
-      console.log(data);
+      props.onGetStarted(data);
     } catch (error) {
       console.log(error);
     } finally {
