@@ -5,7 +5,7 @@ import { LuLoaderCircle } from "react-icons/lu";
 export default function PrimaryBtn(props: {
   title: string,
   onClick: () => void,
-  isLoading: boolean,
+  isLoading?: boolean,
 }) {
   return (
 
