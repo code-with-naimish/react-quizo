@@ -35,23 +35,23 @@ export default function QuizScreen(props: {
 
   return (
 
-    <div className="card">
-      <div className="flex items-center gap-3">
+    <div className="card ">
+      <div className="flex items-center gap-3 ">
         {/* <div className=" mt-5 mb-5 text-xl font-semibold leading-none ">
           {activeIndex + 1}   {activeQuestion.question.text}
         </div> */}
-        <div className="bg-blue-500 border-blue-500 text-white cursor-pointer  font-medium text-xs  px-1.5 py-0.5 rounded-[99px]">{activeQuestion.category}</div>
+        <div className="bg-blue-500/10 text-blue-500 cursor-pointer  font-medium text-xs  px-1.5 py-0.5 rounded-[99px] leading-none">{activeQuestion.category}</div>
         <div
           className={
             `${activeQuestion.difficulty === DifficultyEnum.EASY ? 'bg-green-500/10 text-green-500' : ''} 
         ${activeQuestion.difficulty === DifficultyEnum.MEDIUM ? ' bg-yellow-500/10 text-yellow-500' : ''}
         ${activeQuestion.difficulty === DifficultyEnum.HARD ? ' bg-red-500/10 text-red-500' : ''}
-        
+        cursor-pointer  font-medium text-xs px-1.5 py-1 rounded-[99px] leading-none
         `}>
           {activeQuestion.difficulty}
         </div>
       </div>
-      <div className=" mt-5 mb-5 text-xl font-semibold leading-none ">
+      <div className=" mt-2 mb-5 text-xl font-semibold leading-none text-black/80  ">
         {activeIndex + 1}   {activeQuestion.question.text}
       </div>
       {options.map((option) => {
@@ -59,7 +59,10 @@ export default function QuizScreen(props: {
           {option}
         </div>
       })}
-      <PrimaryBtn title="Next" onClick={handleNext} />
+
+      <div className="flex justify-end">
+        <PrimaryBtn title="Next" onClick={handleNext} />
+      </div>
 
     </div>
   )
