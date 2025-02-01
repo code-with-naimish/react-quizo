@@ -1,7 +1,9 @@
+import { DifficultyEnum } from "../_enums/difficulty.enum";
+
 export interface QuestionModel {
   category: string,
   correctAnswer: string,
-  difficulty: string,
+  difficulty: DifficultyEnum,
   id: string,
   incorrectAnswers: string[],
   isNiche: boolean,

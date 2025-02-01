@@ -3,6 +3,7 @@ import PrimaryBtn from "./primary-btn"
 import { TriviaService } from "../services/trivia.service"
 import { toast } from 'react-toastify';
 import { QuestionModel } from "../_models/question.model";
+import { DifficultyEnum } from "../_enums/difficulty.enum";
 
 
 const categories =
@@ -20,9 +21,9 @@ const categories =
   ]
 
 const difficulties = [
-  { label: "Easy", value: "easy" },
-  { label: "Medium", value: "medium" },
-  { label: "Hard", value: "hard" },
+  { label: "Easy", value: DifficultyEnum.EASY },
+  { label: "Medium", value: DifficultyEnum.MEDIUM },
+  { label: "Hard", value: DifficultyEnum.HARD },
 ]
 
 
