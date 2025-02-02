@@ -63,11 +63,23 @@ export default function InitialScreen(props: {
     const difficultiesStr = selectedDifficulties.toString();//converting array to comma seperated string
     setLoading(true)
     try {
-      const data = await TriviaService.getRandomQuestion({
+      const data: QuestionModel[] = await TriviaService.getRandomQuestion({
         categories: categoriesStr,
         difficulties: difficultiesStr,
         limit: '20',
       });
+
+      // since option array not comming from backend , hence creating options array on my own 
+      // by combining incorrect answers arry and placing correct answer string 
+      //at random index
+
+      data.forEach((val: QuestionModel) => {
+        val.options = [...val.incorrectAnswers];
+        const randomIndex = Math.floor(Math.random() * 4)
+        val.options.splice(randomIndex, 0, val.correctAnswer)
+
+      })
+
       props.onGetStarted(data);
     } catch (error) {
       console.log(error);

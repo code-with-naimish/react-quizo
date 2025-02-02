@@ -10,4 +10,6 @@ export interface QuestionModel {
   question: { text: string },
   tags: string[],
   type: string,
+  //for local usage
+  options: string[]
 }

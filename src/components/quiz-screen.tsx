@@ -11,9 +11,6 @@ export default function QuizScreen(props: {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null)
   const activeQuestion = props.dataArr[activeIndex];
 
-  const options = [...activeQuestion.incorrectAnswers] // shallow copy of incorrect answer to avoid original array mutation
-  const randomIndex = Math.floor(Math.random() * 4); // generating random index between 0 t0 3
-  options.splice(randomIndex, 0, activeQuestion?.correctAnswer) // injecting answer between 0 to 3 index
 
   const handleNext = () => {
 
@@ -59,7 +56,7 @@ export default function QuizScreen(props: {
         {activeIndex + 1}   {activeQuestion.question.text}
       </h1>
       <ul>
-        {options.map((val) => {
+        {activeQuestion.options.map((val) => {
           return <li className={selectedAnswer === val ? 'bg-blue-500' : ''} onClick={() => handleAnswer(val)} key={val}>
             {val}
           </li>
