@@ -53,12 +53,12 @@ export default function QuizScreen(props: {
         </div>
       </div>
       <h1 className=" mt-2 mb-5 text-xl font-semibold leading-none text-black/80  ">
-        {activeIndex + 1}   {activeQuestion.question.text}
+        <span className=" gradient-text">Q{activeIndex + 1}. </span>  {activeQuestion.question.text}
       </h1>
       <ul>
-        {activeQuestion.options.map((val) => {
+        {activeQuestion.options.map((val, i: number) => {
           return <li className={selectedAnswer === val ? 'bg-blue-500' : ''} onClick={() => handleAnswer(val)} key={val}>
-            {val}
+            {i + 1}. {val}
           </li>
         })}
       </ul>
