@@ -24,6 +24,10 @@ export default function QuizScreen(props: {
       return
     }
 
+    if (selectedAnswer === activeQuestion.correctAnswer) {
+      props.onSelectRightAnswer()
+    }
+
     setActiveIndex((prevIndex) => {
 
       const isLastIndex = props.dataArr.length - 1
@@ -38,11 +42,7 @@ export default function QuizScreen(props: {
       }
 
     })
-    console.log(activeQuestion)
 
-    if (selectedAnswer === activeQuestion.correctAnswer) {
-      props.onSelectRightAnswer()
-    }
 
   }
 
@@ -79,11 +79,10 @@ export default function QuizScreen(props: {
         })}
       </ul>
       <div className="flex justify-end mt-5">
-        <PrimaryBtn title="Next" onClick={handleNext} />
-      </div>
 
+        <PrimaryBtn title={activeIndex === props.dataArr.length - 1 ? 'Finish' : 'Next'} onClick={handleNext} />
+
+      </div>
     </div>
   )
 }
-
-//className="bg-blue-500 border-blue-500 text-white cursor-pointer  font-medium text-xs px-1.5 py-0.5 rounded-[99px]"
