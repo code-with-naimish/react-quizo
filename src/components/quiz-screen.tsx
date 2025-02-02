@@ -55,14 +55,14 @@ export default function QuizScreen(props: {
       <h1 className=" mt-2 mb-5 text-xl font-semibold leading-none text-black/80  ">
         <span className=" gradient-text">Q{activeIndex + 1}. </span>  {activeQuestion.question.text}
       </h1>
-      <ul>
+      <ul className=" space-y-3">
         {activeQuestion.options.map((val, i: number) => {
-          return <li className={selectedAnswer === val ? 'bg-blue-500' : ''} onClick={() => handleAnswer(val)} key={val}>
+          return <li className={`${selectedAnswer === val ? 'bg-blue-500/10 border-blue-500 text-blue-500' : 'border-stone-300'} cursor-pointer text-sm p-2 border rounded-lg`} onClick={() => handleAnswer(val)} key={val}>
             {i + 1}. {val}
           </li>
         })}
       </ul>
-      <div className="flex justify-end">
+      <div className="flex justify-end mt-5">
         <PrimaryBtn title="Next" onClick={handleNext} />
       </div>
 
