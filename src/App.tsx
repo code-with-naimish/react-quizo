@@ -18,10 +18,15 @@ import { QuestionModel } from "./_models/question.model"
 const App = () => {
   const [activeScreen, setActiveScreen] = useState<ScreenEnum>(ScreenEnum.INIT);
   const [questionArr, setQuestionArr] = useState<QuestionModel[]>([]);
+  const [totalScore, setTotalScore] = useState<number>(0)
 
   const handleQuestions = (arr: QuestionModel[]) => {
     setQuestionArr(arr);
     setActiveScreen(ScreenEnum.QUIZ)
+  }
+
+  const onSelectRightAnswer = () => {
+    setTotalScore((prevScr) => prevScr + 1)
   }
 
   return (
@@ -33,7 +38,7 @@ const App = () => {
         <div className=" h-[calc(100vh-120px)] flex justify-center items-center ">
           <div className="max-w-3xl px-8 mx-auto w-full" >
             {activeScreen === ScreenEnum.INIT ? <InitialScreen onGetStarted={handleQuestions} /> : null}
-            {activeScreen === ScreenEnum.QUIZ ? <QuizScreen dataArr={questionArr} /> : null}
+            {activeScreen === ScreenEnum.QUIZ ? <QuizScreen dataArr={questionArr} onSelectRightAnswer={onSelectRightAnswer} /> : null}
             {activeScreen === ScreenEnum.RESULT ? <ResultScreen /> : null}
           </div>
         </div>
