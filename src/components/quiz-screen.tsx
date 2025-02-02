@@ -7,9 +7,11 @@ import { DifficultyEnum } from "../_enums/difficulty.enum";
 export default function QuizScreen(props: {
   dataArr: QuestionModel[]
   onSelectRightAnswer: () => void
+  onFinish: () => void
+
 
 }) {
-  console.log(props)
+
 
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null)
@@ -17,6 +19,7 @@ export default function QuizScreen(props: {
 
 
   const handleNext = () => {
+
     if (!selectedAnswer) {
       toast("Please select an answer", {
         type: "warning"
@@ -35,14 +38,16 @@ export default function QuizScreen(props: {
         return prevIndex + 1
 
       } else {
-        toast("This is last question", {
-          type: "warning"
-        })
+        // toast("This is last question", {
+        //   type: "warning"
+        // })
+        props.onFinish()
         return prevIndex;
       }
 
     })
 
+    setSelectedAnswer(null)
 
   }
 

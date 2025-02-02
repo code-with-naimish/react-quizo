@@ -29,6 +29,11 @@ const App = () => {
     setTotalScore((prevScr) => prevScr + 1)
   }
 
+  const renderLastScreen = () => {
+    setActiveScreen(ScreenEnum.RESULT)
+
+  }
+
   return (
 
 
@@ -38,7 +43,7 @@ const App = () => {
         <div className=" h-[calc(100vh-120px)] flex justify-center items-center ">
           <div className="max-w-3xl px-8 mx-auto w-full" >
             {activeScreen === ScreenEnum.INIT ? <InitialScreen onGetStarted={handleQuestions} /> : null}
-            {activeScreen === ScreenEnum.QUIZ ? <QuizScreen dataArr={questionArr} onSelectRightAnswer={onSelectRightAnswer} /> : null}
+            {activeScreen === ScreenEnum.QUIZ ? <QuizScreen dataArr={questionArr} onSelectRightAnswer={onSelectRightAnswer} onFinish={renderLastScreen} /> : null}
             {activeScreen === ScreenEnum.RESULT ? <ResultScreen /> : null}
           </div>
         </div>
