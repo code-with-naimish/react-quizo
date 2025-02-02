@@ -8,6 +8,7 @@ export default function QuizScreen(props: {
   dataArr: QuestionModel[]
 }) {
   const [activeIndex, setActiveIndex] = useState<number>(0);
+  const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null)
   const activeQuestion = props.dataArr[activeIndex];
 
   const options = [...activeQuestion.incorrectAnswers] // shallow copy of incorrect answer to avoid original array mutation
@@ -31,7 +32,10 @@ export default function QuizScreen(props: {
 
     })
   }
-  console.log(activeQuestion);
+
+  const handleAnswer = (option: string) => {
+    setSelectedAnswer(option)
+  }
 
   return (
 
@@ -51,15 +55,16 @@ export default function QuizScreen(props: {
           {activeQuestion.difficulty}
         </div>
       </div>
-      <div className=" mt-2 mb-5 text-xl font-semibold leading-none text-black/80  ">
+      <h1 className=" mt-2 mb-5 text-xl font-semibold leading-none text-black/80  ">
         {activeIndex + 1}   {activeQuestion.question.text}
-      </div>
-      {options.map((option) => {
-        return <div key={option}>
-          {option}
-        </div>
-      })}
-
+      </h1>
+      <ul>
+        {options.map((val) => {
+          return <li className={selectedAnswer === val ? 'bg-blue-500' : ''} onClick={() => handleAnswer(val)} key={val}>
+            {val}
+          </li>
+        })}
+      </ul>
       <div className="flex justify-end">
         <PrimaryBtn title="Next" onClick={handleNext} />
       </div>
