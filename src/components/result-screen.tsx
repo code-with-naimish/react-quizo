@@ -1,4 +1,4 @@
-import { FaTrophy } from "react-icons/fa";
+import { BsTrophy } from "react-icons/bs";
 
 enum ResultStatusEnum {
   FAILED = "FAILED",
@@ -40,15 +40,16 @@ export default function ResultScreen(props: {
 
   return (
     <section className="card">
-      <div className="flex items-center justify-center flex-col gap-6">
-        <div className="text-5xl ">
-          <FaTrophy />
+      <div className="flex items-center justify-center flex-col text-center ">
+        <div className="  bg-green-500/10 text-green-500 flex-none w-28 h-28 rounded-full flex items-center justify-center">
+          <BsTrophy className="text-5xl " />
         </div>
 
-        <h1 className="text-2xl font-medium">Congratulation</h1>
+
+        <h1 className="text-2xl font-medium">{result.title}</h1>
         <p>Your Score</p>
-        <span className="text-3xl">4 / 10</span>
-        <p>You did a great job. Learn more by taking another quiz</p>
+        <span className="text-3xl">{props.totalScore} / 20</span>
+        <p>{result.subTitle}</p>
       </div>
     </section>
   )
