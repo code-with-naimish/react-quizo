@@ -1,6 +1,7 @@
 import { BsTrophy } from "react-icons/bs";
 import { useHighscore } from "../contexts/highscore.context";
 import { useEffect } from "react";
+import { failedScore } from "../_methods/constants";
 
 enum ResultStatusEnum {
   FAILED = "FAILED",
@@ -21,7 +22,7 @@ export default function ResultScreen(props: {
     subTitle: string
   } | null = null;
 
-  if (props.totalScore < 10) {
+  if (props.totalScore < failedScore) {
     result = {
       title: "Failed",
       subTitle: "You are Failed!",

@@ -4,6 +4,7 @@ import { TriviaService } from "../services/trivia.service"
 import { toast } from 'react-toastify';
 import { QuestionModel } from "../_models/question.model";
 import { DifficultyEnum } from "../_enums/difficulty.enum";
+import { questionsLimit } from "../_methods/constants";
 
 
 const categories =
@@ -66,7 +67,7 @@ export default function InitialScreen(props: {
       const data: QuestionModel[] = await TriviaService.getRandomQuestion({
         categories: categoriesStr,
         difficulties: difficultiesStr,
-        limit: '20',
+        limit: String(questionsLimit),
       });
 
       // since option array not comming from backend , hence creating options array on my own 
