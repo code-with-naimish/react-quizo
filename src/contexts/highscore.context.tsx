@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useContext, useState } from "react";
+import { createContext, ReactNode, useContext, useEffect, useState } from "react";
 
 const HighscoreContext = createContext<{
   highScore: number;
@@ -16,6 +16,16 @@ export function HighscoreProvider(props: {
     highScore,
     setHighscore,
   }
+
+  useEffect(() => {
+    const val = localStorage.getItem("high-score")
+    if (val) {
+      setHighscore(Number(val))
+
+    } else {
+      setHighscore(0)
+    }
+  }, [])
 
 
   return <HighscoreContext.Provider value={values}>
