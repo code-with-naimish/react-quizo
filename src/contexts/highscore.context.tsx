@@ -8,7 +8,7 @@ const HighscoreContext = createContext<{
 export function HighscoreProvider(props: {
   children: ReactNode
 }) {
-  const [highScore, setHighscore] = useState<number>(12);
+  const [highScore, setHighscore] = useState<number>(0);
   const values: {
     highScore: number;
     setHighscore: React.Dispatch<React.SetStateAction<number>>;

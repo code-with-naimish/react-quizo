@@ -1,5 +1,6 @@
 import { BsTrophy } from "react-icons/bs";
 import { useHighscore } from "../contexts/highscore.context";
+import { useEffect } from "react";
 
 enum ResultStatusEnum {
   FAILED = "FAILED",
@@ -11,7 +12,7 @@ export default function ResultScreen(props: {
   totalScore: number
 }) {
 
-  const { highScore } = useHighscore()
+  const { highScore, setHighscore } = useHighscore()
 
 
   let result: {
@@ -41,6 +42,12 @@ export default function ResultScreen(props: {
     }
   }
 
+  useEffect(() => {
+    if (props?.totalScore > highScore) {
+      localStorage.setItem("high-score", String(props.totalScore))
+      setHighscore(props.totalScore);
+    }
+  }, [highScore, props.totalScore, setHighscore])
 
   return (
     <section className="card">

@@ -14,9 +14,9 @@ import { HighscoreProvider } from "./contexts/highscore.context"
 
 
 const App = () => {
-  const [activeScreen, setActiveScreen] = useState<ScreenEnum>(ScreenEnum.RESULT);
+  const [activeScreen, setActiveScreen] = useState<ScreenEnum>(ScreenEnum.INIT);
   const [questionArr, setQuestionArr] = useState<QuestionModel[]>([]);
-  const [totalScore, setTotalScore] = useState<number>(11)
+  const [totalScore, setTotalScore] = useState<number>(0)
 
   const handleQuestions = (arr: QuestionModel[]) => {
     setQuestionArr(arr);
