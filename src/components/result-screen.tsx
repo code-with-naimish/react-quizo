@@ -1,4 +1,5 @@
 import { BsTrophy } from "react-icons/bs";
+import { useHighscore } from "../contexts/highscore.context";
 
 enum ResultStatusEnum {
   FAILED = "FAILED",
@@ -9,7 +10,10 @@ enum ResultStatusEnum {
 export default function ResultScreen(props: {
   totalScore: number
 }) {
-  const highScore = 0;
+
+  const { highScore } = useHighscore()
+
+
   let result: {
     status: ResultStatusEnum,
     title: string,

@@ -1,6 +1,9 @@
 import { PiLightbulbFilament } from "react-icons/pi";
+import { useHighscore } from "../contexts/highscore.context";
 
 export default function Header() {
+  const { highScore } = useHighscore()
+
   return (
     <header >
       <div className=" max-w-7xl  mx-auto px-8  ">
@@ -9,7 +12,7 @@ export default function Header() {
             <PiLightbulbFilament className="text-5xl" />
             <p className=" text-2xl font-medium ">Quizo</p>
           </div>
-          <div className=" font-medium">Highscore: 0</div>
+          <div className=" font-medium">Highscore: {highScore}</div>
         </div>
       </div>
     </header>
