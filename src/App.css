@@ -1,0 +1,14 @@
+body {
+  font-family: "Outfit", serif;
+}
+
+.card {
+  @apply bg-white p-6 rounded-2xl;
+}
+
+.gradient-text {
+  background: linear-gradient(to right, #06b6d4 70%, #3b82f6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
