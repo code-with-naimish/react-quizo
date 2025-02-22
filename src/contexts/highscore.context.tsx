@@ -1,21 +1,18 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from "react";
 
-const HighscoreContext = createContext<{
+interface HighscoreContextModel {
   highScore: number;
   setHighscore: React.Dispatch<React.SetStateAction<number>>
-} | null>(null)
+  resetHighscore: () => void
+}
+
+const HighscoreContext = createContext<HighscoreContextModel | null>(null)
 
 export function HighscoreProvider(props: {
   children: ReactNode
 }) {
   const [highScore, setHighscore] = useState<number>(0);
-  const values: {
-    highScore: number;
-    setHighscore: React.Dispatch<React.SetStateAction<number>>;
-  } = {
-    highScore,
-    setHighscore,
-  }
+
 
   useEffect(() => {
     const val = localStorage.getItem("high-score")
@@ -27,6 +24,17 @@ export function HighscoreProvider(props: {
     }
   }, [])
 
+  const resetHighscore = () => {
+    localStorage.clear();
+    setHighscore(0);
+  }
+
+  const values: HighscoreContextModel = {
+    highScore,
+    setHighscore,
+    resetHighscore,
+
+  }
 
   return <HighscoreContext.Provider value={values}>
     {props.children}

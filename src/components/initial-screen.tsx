@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import { QuestionModel } from "../_models/question.model";
 import { DifficultyEnum } from "../_enums/difficulty.enum";
 import { questionsLimit } from "../_methods/constants";
+import { useHighscore } from "../contexts/highscore.context";
 
 
 const categories =
@@ -37,6 +38,8 @@ export default function InitialScreen(props: {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [selectedDifficulties, setSelectedDifficulties] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
+  const { resetHighscore } = useHighscore()
+
   const handleCategories = (val: string) => {
     setSelectedCategories((prevArr) => {
       if (prevArr.includes(val)) {
@@ -103,7 +106,7 @@ export default function InitialScreen(props: {
 
   return (
     <section className="card">
-      <h1 className="text-xl font-semibold leading-none mb-3">Welcome to <span className="gradient-text">Quizo!</span> </h1>
+      <h1 onClick={resetHighscore} className="text-xl font-semibold leading-none mb-3">Welcome to <span className="gradient-text">Quizo!</span> </h1>
       <p className="mb-4 text-sm opacity-70 [&>span]:text-blue-500 [&>span]:font-medium ">
 
         Welcome to a fun and interactive quiz app designed to test your knowledge across a variety of topics! Explore exciting questions tailored to your interests and skills. Choose a <span>Category</span> & <span>Difficulty</span> that suit you best. Dive in and start your adventure today!
@@ -132,6 +135,7 @@ export default function InitialScreen(props: {
 
       </div>
       <div className="flex justify-end">
+
         <PrimaryBtn onClick={getStarted} title="Get started" isLoading={loading} />
 
       </div>
