@@ -4,6 +4,7 @@ import { ReactNode, useEffect } from "react";
 import { failedScore, questionsLimit } from "../_methods/constants";
 import { IoClose } from "react-icons/io5";
 import { FaCheck } from "react-icons/fa";
+import PrimaryBtn from "./primary-btn";
 
 
 export default function ResultScreen(props: {
@@ -44,6 +45,9 @@ export default function ResultScreen(props: {
     }
   }
 
+  const onClickBack = () => {
+
+  }
 
   useEffect(() => {
     if (props?.totalScore > highScore) {
@@ -55,15 +59,16 @@ export default function ResultScreen(props: {
   return (
     <section className="card">
       <div className="flex items-center justify-center flex-col text-center">
-        <div className={`text-5xl ${result.className} flex-none w-28 h-28 rounded-full flex items-center justify-center`}>
+        <div className={`text-5xl  ${result.className} mb-3 flex-none w-20 h-20 rounded-full flex items-center justify-center`}>
           {result.icon}
         </div>
 
 
-        <h1 className="text-2xl font-medium">{result.title}</h1>
-        <p>Your Score</p>
+        <h1 className="text-2xl font-medium mb-1">{result.title}</h1>
+        <p className="mb-0.5">Your Score</p>
         <span className="text-3xl">{props.totalScore} / {questionsLimit}</span>
-        <p>{result.subTitle}</p>
+        <p className="mb-5">{result.subTitle}</p>
+        <PrimaryBtn title="Back To Home" onClick={onClickBack} />
       </div>
     </section >
   )
