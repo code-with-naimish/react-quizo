@@ -9,6 +9,7 @@ import PrimaryBtn from "./primary-btn";
 
 export default function ResultScreen(props: {
   totalScore: number
+  onBack: () => void
 }) {
 
   const { highScore, setHighscore } = useHighscore()
@@ -46,7 +47,7 @@ export default function ResultScreen(props: {
   }
 
   const onClickBack = () => {
-
+    props.onBack();
   }
 
   useEffect(() => {

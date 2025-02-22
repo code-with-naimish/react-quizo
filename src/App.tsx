@@ -32,6 +32,12 @@ const App = () => {
 
   }
 
+  const reset = () => {
+    setActiveScreen(ScreenEnum.INIT);
+    setQuestionArr([]);
+    setTotalScore(0);
+  }
+
   return (
 
     <>
@@ -43,7 +49,7 @@ const App = () => {
               <div className="max-w-3xl px-8 mx-auto w-full" >
                 {activeScreen === ScreenEnum.INIT ? <InitialScreen onGetStarted={handleQuestions} /> : null}
                 {activeScreen === ScreenEnum.QUIZ ? <QuizScreen dataArr={questionArr} onSelectRightAnswer={onSelectRightAnswer} onFinish={renderLastScreen} /> : null}
-                {activeScreen === ScreenEnum.RESULT ? <ResultScreen totalScore={totalScore} /> : null}
+                {activeScreen === ScreenEnum.RESULT ? <ResultScreen totalScore={totalScore} onBack={reset} /> : null}
               </div>
             </div>
           </main>
