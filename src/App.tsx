@@ -44,15 +44,14 @@ const App = () => {
 
     <>
       <HighscoreProvider >
-        <div className=" min-h-screen">
+        <div className=" min-h-screen flex flex-col justify-between">
           <Header />
-          <main className="bg-gradient-to-r from-cyan-500 to-blue-500" >
-            <div className=" h-[calc(100vh-120px)] flex justify-center items-center ">
-              <div className="max-w-3xl px-8 mx-auto w-full" >
-                {activeScreen === ScreenEnum.INIT ? <InitialScreen onGetStarted={handleQuestions} /> : null}
-                {activeScreen === ScreenEnum.QUIZ ? <QuizScreen dataArr={questionArr} onSelectRightAnswer={onSelectRightAnswer} onFinish={renderLastScreen} /> : null}
-                {activeScreen === ScreenEnum.RESULT ? <ResultScreen totalScore={totalScore} onBack={reset} /> : null}
-              </div>
+          <main className="flex-grow flex justify-center items-center bg-gradient-to-r from-cyan-500 to-blue-500" >
+
+            <div className="max-w-3xl p-8 mx-auto " >
+              {activeScreen === ScreenEnum.INIT ? <InitialScreen onGetStarted={handleQuestions} /> : null}
+              {activeScreen === ScreenEnum.QUIZ ? <QuizScreen dataArr={questionArr} onSelectRightAnswer={onSelectRightAnswer} onFinish={renderLastScreen} /> : null}
+              {activeScreen === ScreenEnum.RESULT ? <ResultScreen totalScore={totalScore} onBack={reset} /> : null}
             </div>
           </main>
 
