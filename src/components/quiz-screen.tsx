@@ -73,7 +73,7 @@ export default function QuizScreen(props: {
           {activeQuestion.difficulty}
         </div>
       </div>
-      <h1 className=" mt-2 mb-5 text-xl font-semibold leading-none text-black/80  ">
+      <h1 className=" break-words mt-2 mb-5 text-xl font-semibold leading-none text-black/80  ">
         <span className=" gradient-text">Q{activeIndex + 1}. </span>  {activeQuestion.question.text}
       </h1>
       <ul className=" space-y-3">
