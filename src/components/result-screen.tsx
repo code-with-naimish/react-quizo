@@ -15,35 +15,35 @@ export default function ResultScreen(props: {
 
   let result: {
     title: string,
-    subTitle: string
-    icon: ReactNode
+    subTitle: string,
+    icon: ReactNode,
     className: string
   } | null = null;
 
   if (props.totalScore < failedScore) {
     result = {
-      title: "Failed",
-      subTitle: "You are Failed!",
+      title: "Oops, You Didn't Pass",
+      subTitle: "Don't worry! Keep practicing, and you'll get it next time.",
       icon: <IoClose />,
       className: "bg-red-500/10 text-red-500"
     }
 
   } else if (props.totalScore >= highScore) {
     result = {
-      title: "Highscore",
-      subTitle: "Bravo! You made a new Highscore",
+      title: "New High Score!",
+      subTitle: "Amazing! You've set a new record. Keep up the great work!",
       icon: <BsTrophy />,
       className: "bg-green-500/10 text-green-500"
-
     }
   } else {
     result = {
-      title: "Congratulation",
-      subTitle: "You are Passed!",
+      title: "Congratulations!",
+      subTitle: "Well done! You've passed. Keep aiming higher!",
       icon: <FaCheck />,
       className: "bg-green-500/10 text-green-500"
     }
   }
+
 
   useEffect(() => {
     if (props?.totalScore > highScore) {
