@@ -4,6 +4,7 @@ import PrimaryBtn from "./primary-btn";
 import { toast } from "react-toastify";
 import { DifficultyEnum } from "../_enums/difficulty.enum";
 import { underscoreCapitalise } from "../_methods/helpers";
+import { questionsLimit } from "../_methods/constants";
 
 export default function QuizScreen(props: {
   dataArr: QuestionModel[]
@@ -59,20 +60,24 @@ export default function QuizScreen(props: {
   return (
 
     <div className="card ">
-      <div className="flex items-center gap-3 ">
-
-        <div className="bg-blue-500/10 text-blue-500 cursor-pointer  font-medium text-xs  px-1.5 py-0.5 rounded-[99px] leading-none">
-          {underscoreCapitalise(activeQuestion?.category)}
-        </div>
-        <div
-          className={
-            `${activeQuestion?.difficulty === DifficultyEnum.EASY ? 'bg-green-500/10 text-green-500' : ''} 
+      <div className="flex items-start justify-between gap-3 ">
+        <div className="flex items-center mb-3 ">
+          <div className="bg-blue-500/10 text-blue-500 cursor-pointer  font-medium text-xs  px-1.5 py-0.5 rounded-[99px] leading-none">
+            {underscoreCapitalise(activeQuestion?.category)}
+          </div>
+          <div
+            className={
+              `${activeQuestion?.difficulty === DifficultyEnum.EASY ? 'bg-green-500/10 text-green-500' : ''} 
         ${activeQuestion?.difficulty === DifficultyEnum.MEDIUM ? ' bg-yellow-500/10 text-yellow-500' : ''}
         ${activeQuestion?.difficulty === DifficultyEnum.HARD ? ' bg-red-500/10 text-red-500' : ''}
         cursor-pointer  font-medium text-xs px-1.5 py-1 rounded-[99px] leading-none
         `}>
-          {underscoreCapitalise(activeQuestion?.difficulty)}
+            {underscoreCapitalise(activeQuestion?.difficulty)}
+          </div>
         </div>
+
+        <p className="text-sm">{activeIndex + 1} / {questionsLimit}</p>
+
       </div>
       <h1 className=" break-words mt-2 mb-5 text-xl font-semibold leading-none text-black/80  ">
         <span className=" gradient-text">Q{activeIndex + 1}. </span>  {activeQuestion?.question.text}
