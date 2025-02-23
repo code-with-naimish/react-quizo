@@ -61,7 +61,7 @@ export default function QuizScreen(props: {
 
     <div className="card ">
       <div className="flex items-start justify-between gap-3 ">
-        <div className="flex items-center mb-3 ">
+        <div className="flex items-center gap-1.5 mb-3 ">
           <div className="bg-blue-500/10 text-blue-500 cursor-pointer  font-medium text-xs  px-1.5 py-0.5 rounded-[99px] leading-none">
             {underscoreCapitalise(activeQuestion?.category)}
           </div>
@@ -76,10 +76,10 @@ export default function QuizScreen(props: {
           </div>
         </div>
 
-        <p className="text-sm">{activeIndex + 1} / {questionsLimit}</p>
+        <p className="text-sm opacity-70">{activeIndex + 1} / {questionsLimit}</p>
 
       </div>
-      <h1 className=" break-words mt-2 mb-5 text-xl font-semibold leading-none text-black/80  ">
+      <h1 className=" break-words mt-2 mb-5 md:text-xl text-lg font-semibold  text-black/80  ">
         <span className=" gradient-text">Q{activeIndex + 1}. </span>  {activeQuestion?.question.text}
       </h1>
       <ul className=" space-y-3">

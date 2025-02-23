@@ -9,10 +9,10 @@ export default function Header() {
       <div className=" max-w-7xl  mx-auto px-8  ">
         <div className=" flex justify-between items-center gap-2.5 py-3" >
           <div className="flex items-center">
-            <PiLightbulbFilament className="text-5xl" />
-            <p className=" text-2xl font-medium ">Quizo</p>
+            <PiLightbulbFilament className="md:text-5xl text-4xl" />
+            <p className=" md:text-2xl text-xl font-medium ">Quizo</p>
           </div>
-          <div className=" font-medium">Highscore: {highScore}</div>
+          <p className=" font-medium md:text-base text-sm">Highscore: {highScore}</p>
         </div>
       </div>
     </header>

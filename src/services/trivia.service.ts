@@ -4,7 +4,7 @@ export class TriviaService {
   static async getRandomQuestion(queryParam: {
     categories: string,
     difficulties: string,
-    limit: string
+    limit: string,
   }) {
     const queryString = new URLSearchParams(queryParam).toString();// converting object to query params
     const url = `${environment.triviaBaseUrl}/questions?${queryString}`

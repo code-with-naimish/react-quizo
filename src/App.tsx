@@ -26,7 +26,7 @@ const App = () => {
   }
 
   const onSelectRightAnswer = () => {
-    setTotalScore((prevScr) => prevScr + 1)
+    setTotalScore((prevSrc) => prevSrc + 1)
   }
 
   const renderLastScreen = () => {
