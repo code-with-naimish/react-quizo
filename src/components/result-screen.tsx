@@ -68,7 +68,7 @@ export default function ResultScreen(props: {
         <h1 className="text-2xl font-medium mb-1">{result.title}</h1>
         <p className="mb-0.5">Your Score</p>
         <span className="text-3xl">{props.totalScore} / {questionsLimit}</span>
-        <p className="mb-5">{result.subTitle}</p>
+        <p className="mb-5 ">{result.subTitle}</p>
         <PrimaryBtn title="Back To Home" onClick={onClickBack} />
       </div>
     </section >

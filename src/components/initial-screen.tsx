@@ -107,9 +107,8 @@ export default function InitialScreen(props: {
   return (
     <section className="card">
       <h1 onClick={resetHighscore} className="text-xl font-semibold leading-none mb-3">Welcome to <span className="gradient-text">Quizo!</span> </h1>
-      <p className="mb-4 text-sm opacity-70  ">
-
-        Welcome to a fun and interactive quiz app designed to test your knowledge across a variety of topics! Explore exciting questions tailored to your interests and skills. Choose a <span className=" gradient-text font-medium">Categories</span> & <span className=" gradient-text font-medium">Difficulties</span> that suit you best. Dive in and start your adventure today!
+      <p className="mb-4 text-sm opacity-70  text-balance ">
+        Welcome to a fun quiz app that tests your knowledge! Choose your favorite <span className="gradient-text font-medium">Categories</span> & <span className="gradient-text font-medium">Difficulties</span>, and start your adventure now!
       </p>
 
       <div className="border mb-5 border-stone-300 p-4 rounded-lg">
